@@ -110,9 +110,7 @@ body {
   margin: 5%;
 }
 
-/* .menu__item:not(:last-child) {
-  margin: 0 15px 0 0; 
-} */
+
 
 .menu__link {
   color: #737373;
@@ -120,34 +118,12 @@ body {
   justify-content: center;
 }
 
-/* .menu__link_active {
-	border-bottom: 2px solid lightcoral;
-	transition: border-bottom 0.5s ease, left 0.5s ease; 
-  } */
 
   .menu__link_active {
     position: relative;
     border-bottom: 2px solid red;
     transition: border-color 0.3s ease;
 }
-
-/* .menu__link_active::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: red;
-    transition: width 0.3s ease;
-}
-
-.menu__link_active:hover::before {
-    width: 100%;
-} */
-
-
-  
 
 
 

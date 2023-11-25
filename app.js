@@ -5,8 +5,9 @@ const container = document.querySelector('.container');
 const mainSlide = document.querySelector('.main-slide');
 const slidesCount = mainSlide.querySelectorAll('div').length;
 
-//buttons and wheel for desktop
+let activeSlideIndex = 0;
 
+//buttons and wheel for desktop
 upBtn.addEventListener('click', () => changeSlide('up'));
 
 downBtn.addEventListener('click', () => changeSlide('down'));
@@ -62,7 +63,7 @@ function handleTouchMove(event) {
 }
 
 //function change slide
-let activeSlideIndex = 0;
+
 
 sidebar.style.top = `-${(slidesCount - 1) * 100}vh`;
 
@@ -78,41 +79,32 @@ const changeSlide = (direction) => {
     //   activeSlideIndex = slidesCount - 1;
     // }
   }
-
   const height = container.clientHeight;
-
   mainSlide.style.transform = `translateY(-${activeSlideIndex * height}px)`;
-
   sidebar.style.transform = `translateY(${activeSlideIndex * height}px)`;
-  console.log(activeSlideIndex);
+  activeBtnClassAdder(allNavMenuButtons[slidesCount - activeSlideIndex - 1]);
 };
 
 const allNavMenuButtons = document.querySelectorAll('.menu__link');
 
-const activeBtnClassAdder = (e) => {
+function activeBtnClassAdder(e) {
   allNavMenuButtons.forEach((btn) => btn.classList.remove('menu__link_active'));
-  e.classList.add('menu__link_active')
+  e.classList.add('menu__link_active');
+}
+
+const activeBtnClassAdderByDataId = (e) => {
+  allNavMenuButtons.forEach((btn) => btn.classList.remove('menu__link_active'));
+  e.classList.add('menu__link_active');
 };
 
 allNavMenuButtons.forEach((btn) => {
   btn.addEventListener('click', (event) => {
-	event.preventDefault()
-	const {target} = event
-	activeBtnClassAdder(target)
-	changeSlideByNav(slidesCount-target.getAttribute(`data-number`))
+    event.preventDefault();
+    const { target } = event;
+    activeBtnClassAdder(target);
+    changeSlideByNav(slidesCount - target.getAttribute(`data-number`));
   });
 });
-
-
-
-
-
-
-
-
-
-
-
 
 //add border to active button
 
