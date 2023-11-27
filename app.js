@@ -121,6 +121,10 @@ mainLogo.addEventListener('click', (event) => {
   console.log('logo_clicked');
 });
 
+// window.onload = function () {
+// 	console.log('strt');
+// }
+
 // //swipe for mobile
 // document.addEventListener('touchstart', handleTouchStart, false)
 // document.addEventListener('touchmove', handleTouchMove, false)
